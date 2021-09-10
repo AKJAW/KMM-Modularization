@@ -58,6 +58,7 @@ kotlin {
     }
 
     sourceSets["commonMain"].dependencies {
+        api(project(":kmm:core:core-common"))
         implementation(Deps.SqlDelight.runtime)
         implementation(Deps.SqlDelight.coroutinesExtensions)
         implementation(Deps.Ktor.commonCore)
@@ -69,10 +70,11 @@ kotlin {
         implementation(Deps.koinCore)
         implementation(Deps.Ktor.commonSerialization)
         implementation(Deps.kotlinxDateTime)
-        api(Deps.kermit)
+        implementation(Deps.kermit)
     }
 
     sourceSets["commonTest"].dependencies {
+        implementation(project(":kmm:core:core-test"))
         implementation(Deps.multiplatformSettingsTest)
         implementation(Deps.KotlinTest.common)
         implementation(Deps.KotlinTest.annotations)
@@ -104,6 +106,7 @@ kotlin {
     }
 
     sourceSets["iosMain"].dependencies {
+        api(project(":kmm:core:core-ios"))
         implementation(Deps.SqlDelight.driverIos)
         implementation(Deps.Ktor.ios)
 
@@ -115,7 +118,7 @@ kotlin {
     }
 
     cocoapods {
-        summary = "Common library for the KaMP starter kit"
+        summary = "The umbrella framework for the KMM codebase"
         homepage = "https://github.com/touchlab/KaMPKit"
     }
 
@@ -123,7 +126,8 @@ kotlin {
     targets.withType<KotlinNativeTarget> {
         binaries.withType<Framework> {
             isStatic = false // SwiftUI preview requires dynamic framework
-            export(Deps.kermit)
+            export(project(":kmm:core:core-common"))
+            export(project(":kmm:core:core-ios"))
             transitiveExport = true
         }
     }

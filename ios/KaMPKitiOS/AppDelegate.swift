@@ -13,13 +13,15 @@ import shared
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    
+    lazy var timestampProvider = koin.get(objCProtocol: TimestampProvider.self) as! TimestampProvider
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         startKoin()
         
-        let viewController = UIHostingController(rootView: Text("Cool text"))
+        let viewController = UIHostingController(rootView: Text("Cool text \(timestampProvider.getMilliseconds())"))
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = viewController

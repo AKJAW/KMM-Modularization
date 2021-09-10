@@ -18,8 +18,8 @@ func startKoin() {
     _koin = koinApplication.koin
 }
 
-private var _koin: Koin_coreKoin? = nil
-var koin: Koin_coreKoin {
+private var _koin: Koin? = nil
+var koin: Koin {
     return _koin!
 }
 

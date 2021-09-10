@@ -4,21 +4,20 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Text
+import co.touchlab.core.common.TimestampProvider
 import co.touchlab.kampkit.android.ui.theme.KaMPKitTheme
-import co.touchlab.kermit.Kermit
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import org.koin.core.parameter.parametersOf
 
 class MainActivity : ComponentActivity(), KoinComponent {
 
-    private val log: Kermit by inject { parametersOf("MainActivity") }
+    private val timestampProvider: TimestampProvider by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             KaMPKitTheme {
-                Text("Cool")
+                Text("Cool Text ${timestampProvider.getMilliseconds()}")
             }
         }
     }

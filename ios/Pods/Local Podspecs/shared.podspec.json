@@ -8,7 +8,7 @@
   },
   "authors": "",
   "license": "",
-  "summary": "Common library for the KaMP starter kit",
+  "summary": "The umbrella framework for the KMM codebase",
   "static_framework": true,
   "vendored_frameworks": "build/cocoapods/framework/shared.framework",
   "libraries": "c++",
