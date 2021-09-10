@@ -15,15 +15,7 @@ class MainApp : Application() {
         super.onCreate()
         initKoin(
             module {
-                single<Context> { this@MainApp }
-                viewModel { BreedViewModel() }
-                single<SharedPreferences> {
-                    get<Context>().getSharedPreferences("KAMPSTARTER_SETTINGS", Context.MODE_PRIVATE)
-                }
                 single<AppInfo> { AndroidAppInfo }
-                single {
-                    { Log.i("Startup", "Hello from Android/Kotlin!") }
-                }
             }
         )
     }
