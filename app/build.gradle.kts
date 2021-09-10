@@ -49,7 +49,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":shared"))
+    implementation(project(":kmm:shared"))
     implementation(Deps.material)
     coreLibraryDesugaring(Deps.desugarJdkLibs)
     implementation(Deps.AndroidX.core_ktx)

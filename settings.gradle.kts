@@ -1,2 +1,2 @@
-include(":app", ":shared")
+include(":app", ":kmm:shared")
 rootProject.name = "KaMPKit"

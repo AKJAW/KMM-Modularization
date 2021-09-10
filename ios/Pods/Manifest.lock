@@ -2,15 +2,15 @@ PODS:
   - shared (1.1)
 
 DEPENDENCIES:
-  - shared (from `../shared/`)
+  - shared (from `../kmm/shared/`)
 
 EXTERNAL SOURCES:
   shared:
-    :path: "../shared/"
+    :path: "../kmm/shared/"
 
 SPEC CHECKSUMS:
-  shared: 84b3d75e1d2054a3be1ad65280f7d4a650338826
+  shared: 15f22cab098028b9c2788752e2257f61c5d31f22
 
-PODFILE CHECKSUM: aa600218d055af16572aaff4978de62ffdb237ea
+PODFILE CHECKSUM: d934f03765cdc2738027d7d3f0c0f5fcdf5a6ef5
 
 COCOAPODS: 1.10.2
