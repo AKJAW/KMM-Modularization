@@ -73,6 +73,7 @@ object Deps {
         const val uiTooling = "androidx.compose.ui:ui-tooling:${Versions.Compose.compose}"
         const val foundation = "androidx.compose.foundation:foundation:${Versions.Compose.compose}"
         const val material = "androidx.compose.material:material:${Versions.Compose.compose}"
+        const val materialIcons = "androidx.compose.material:material-icons-core:${Versions.Compose.compose}"
         const val activityCompose = "androidx.activity:activity-compose:${Versions.Compose.activity}"
         object Accompanist {
             const val swipeRefresh = "com.google.accompanist:accompanist-swiperefresh:${Versions.Compose.accompanist}"

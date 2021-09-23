@@ -70,6 +70,7 @@ dependencies {
     implementation(Deps.Compose.uiTooling)
     implementation(Deps.Compose.foundation)
     implementation(Deps.Compose.material)
+    implementation(Deps.Compose.materialIcons)
     implementation(Deps.Compose.Accompanist.swipeRefresh)
 
     testImplementation(Deps.junit)

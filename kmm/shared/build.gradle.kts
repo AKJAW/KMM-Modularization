@@ -59,6 +59,8 @@ kotlin {
 
     sourceSets["commonMain"].dependencies {
         api(project(":kmm:core:core-common"))
+        api(project(":kmm:todos:todos-list-api"))
+        implementation(project(":kmm:todos:todos-list-dependency"))
         implementation(Deps.SqlDelight.runtime)
         implementation(Deps.SqlDelight.coroutinesExtensions)
         implementation(Deps.Ktor.commonCore)
@@ -128,6 +130,7 @@ kotlin {
             isStatic = false // SwiftUI preview requires dynamic framework
             export(project(":kmm:core:core-common"))
             export(project(":kmm:core:core-ios"))
+            export(project(":kmm:todos:todos-list-api"))
             transitiveExport = true
         }
     }
