@@ -1,7 +1,7 @@
 object Versions {
     val min_sdk = 21
     val target_sdk = 30
-    val compile_sdk = 30
+    val compile_sdk = 31
 
     val kotlin = "1.5.21"
     val android_gradle_plugin = "7.0.0"
@@ -9,7 +9,7 @@ object Versions {
     val buildToolsVersion = "30.0.3"
     val coroutines = "1.5.0-native-mt"
     val kermit = "0.1.9"
-    val koin = "3.0.2"
+    val koin = "3.1.2"
     val ktlint_gradle_plugin = "10.0.0"
     val ktor = "1.6.0"
     val junit = "4.13.2"
@@ -45,6 +45,7 @@ object Deps {
     val kermit = "co.touchlab:kermit:${Versions.kermit}"
     val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"
     val koinCore = "io.insert-koin:koin-core:${Versions.koin}"
+    val koinCompose = "io.insert-koin:koin-androidx-compose:${Versions.koin}"
     val koinTest = "io.insert-koin:koin-test:${Versions.koin}"
     val multiplatformSettings = "com.russhwolf:multiplatform-settings:${Versions.multiplatformSettings}"
     val multiplatformSettingsTest = "com.russhwolf:multiplatform-settings-test:${Versions.multiplatformSettings}"
@@ -75,6 +76,7 @@ object Deps {
         const val material = "androidx.compose.material:material:${Versions.Compose.compose}"
         const val materialIcons = "androidx.compose.material:material-icons-core:${Versions.Compose.compose}"
         const val activityCompose = "androidx.activity:activity-compose:${Versions.Compose.activity}"
+        const val navigation = "androidx.navigation:navigation-compose:2.4.0-alpha09"
         object Accompanist {
             const val swipeRefresh = "com.google.accompanist:accompanist-swiperefresh:${Versions.Compose.accompanist}"
         }

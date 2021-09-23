@@ -61,6 +61,7 @@ dependencies {
     implementation(Deps.multiplatformSettings)
     implementation(Deps.koinCore)
     implementation(Deps.koinAndroid)
+    implementation(Deps.koinCompose)
     implementation(Deps.AndroidX.lifecycle_runtime)
     implementation(Deps.AndroidX.lifecycle_viewmodel)
     implementation(Deps.AndroidX.lifecycle_viewmodel_extensions)
@@ -71,6 +72,7 @@ dependencies {
     implementation(Deps.Compose.foundation)
     implementation(Deps.Compose.material)
     implementation(Deps.Compose.materialIcons)
+    implementation(Deps.Compose.navigation)
     implementation(Deps.Compose.Accompanist.swipeRefresh)
 
     testImplementation(Deps.junit)
