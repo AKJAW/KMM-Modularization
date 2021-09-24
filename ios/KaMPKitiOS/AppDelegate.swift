@@ -37,14 +37,23 @@ struct Container: View {
     
     var body: some View {
         NavigationView {
-            TodosList()
-            .navigationBarTitle(Text("Todos"))
-            // 3.
+            TabView {
+                TodosListView()
+                    .tabItem {
+                        Image(systemName: "heart.fill")
+                        Text("List")
+                }
+                CountView()
+                    .tabItem {
+                        Image(systemName: "star.fill")
+                        Text("Count")
+                }
+            }
             .navigationBarItems(trailing: Button(action: {
                 addTodo.invoke().subscribe { KotlinUnit in
-                    
+
                 } onThrow: { KotlinThrowable in
-                    
+
                 }
 
             }) {
@@ -54,14 +63,13 @@ struct Container: View {
     }
 }
 
-struct TodosList: View {
+struct TodosListView: View {
     
     private let getTodos = koin.get(objCClass: GetTodosIos.self) as! GetTodosIos
     @State private var todos: [Todo] = []
     
     var body: some View {
         List {
-            // 2.
             ForEach(todos, id: \.self) { todo in
                 HStack {
                     Text(todo.name)
@@ -72,6 +80,30 @@ struct TodosList: View {
             getTodos.invoke().subscribe { todos in
                 if (todos != nil){
                     self.todos = todos as! [Todo]
+                }
+            } onThrow: { KotlinThrowable in
+                
+            }
+
+        })
+    }
+}
+
+struct CountView: View {
+    
+    private let getTodoCount = koin.get(objCClass: GetTodoCountIos.self) as! GetTodoCountIos
+    @State private var count: TodoCount = TodoCount(value: 0, lastUpdateTimestamp: 0)
+    
+    var body: some View {
+        List {
+            HStack {
+                Text(String(count.value))
+                Text(String(count.lastUpdateTimestamp))
+            }
+        }.onAppear(perform: {
+            getTodoCount.invoke().subscribe { count in
+                if (count != nil){
+                    self.count = count as! TodoCount
                 }
             } onThrow: { KotlinThrowable in
                 
