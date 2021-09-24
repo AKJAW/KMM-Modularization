@@ -61,6 +61,8 @@ kotlin {
         api(project(":kmm:core:core-common"))
         api(project(":kmm:todos:todos-list-api"))
         implementation(project(":kmm:todos:todos-list-dependency"))
+        api(project(":kmm:todos:todos-count-api"))
+        implementation(project(":kmm:todos:todos-count-dependency"))
         implementation(Deps.SqlDelight.runtime)
         implementation(Deps.SqlDelight.coroutinesExtensions)
         implementation(Deps.Ktor.commonCore)
@@ -131,6 +133,7 @@ kotlin {
             export(project(":kmm:core:core-common"))
             export(project(":kmm:core:core-ios"))
             export(project(":kmm:todos:todos-list-api"))
+            export(project(":kmm:todos:todos-count-api"))
             transitiveExport = true
         }
     }
