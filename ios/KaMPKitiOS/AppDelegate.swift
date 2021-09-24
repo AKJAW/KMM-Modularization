@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         startKoin()
         
-        let viewController = UIHostingController(rootView: Text("Cool text \(timestampProvider.getMilliseconds())"))
+        let viewController = UIHostingController(rootView: Container.init())
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = viewController
@@ -31,3 +31,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+struct Container: View {
+    
+    private let addTodo = koin.get(objCClass: AddTodoIos.self) as! AddTodoIos
+    
+    var body: some View {
+        NavigationView {
+            TodosList()
+            .navigationBarTitle(Text("Todos"))
+            // 3.
+            .navigationBarItems(trailing: Button(action: {
+                addTodo.invoke().subscribe { KotlinUnit in
+                    
+                } onThrow: { KotlinThrowable in
+                    
+                }
+
+            }) {
+                Image(systemName: "plus")
+            })
+        }
+    }
+}
+
+struct TodosList: View {
+    
+    private let getTodos = koin.get(objCClass: GetTodosIos.self) as! GetTodosIos
+    @State private var todos: [Todo] = []
+    
+    var body: some View {
+        List {
+            // 2.
+            ForEach(todos, id: \.self) { todo in
+                HStack {
+                    Text(todo.name)
+                    Text(String(todo.timestamp))
+                }
+            }
+        }.onAppear(perform: {
+            getTodos.invoke().subscribe { todos in
+                if (todos != nil){
+                    self.todos = todos as! [Todo]
+                }
+            } onThrow: { KotlinThrowable in
+                
+            }
+
+        })
+    }
+}

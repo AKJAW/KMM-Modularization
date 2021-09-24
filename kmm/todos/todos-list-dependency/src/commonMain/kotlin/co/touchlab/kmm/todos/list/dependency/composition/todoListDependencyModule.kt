@@ -1,5 +1,6 @@
 package co.touchlab.kmm.todos.list.dependency.composition
 
+import co.touchlab.kmm.todos.list.api.composition.listApiPlatformModule
 import co.touchlab.kmm.todos.list.api.domain.AddTodo
 import co.touchlab.kmm.todos.list.api.domain.GetTodos
 import co.touchlab.kmm.todos.list.dependency.data.InMemoryTodosRepository
@@ -11,4 +12,5 @@ val todoListDependencyModule = module {
     single { InMemoryTodosRepository() }
     factory<AddTodo> { AddTodoToMemory(get(), get()) }
     factory<GetTodos> { GetTodosFromMemory(get()) }
+    listApiPlatformModule()
 }

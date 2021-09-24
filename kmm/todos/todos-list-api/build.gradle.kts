@@ -43,12 +43,15 @@ kotlin {
 
     sourceSets["androidMain"].dependencies {
         implementation(Deps.Coroutines.android)
+        implementation(Deps.koinCore)
     }
 
     sourceSets["androidTest"].dependencies {
     }
 
     sourceSets["iosMain"].dependencies {
+        implementation(project(":kmm:core:core-ios"))
+        implementation(Deps.koinCore)
         implementation(Deps.Coroutines.common) {
             version {
                 strictly(Versions.coroutines)
