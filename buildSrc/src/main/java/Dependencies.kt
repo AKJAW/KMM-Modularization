@@ -21,7 +21,7 @@ object Versions {
     val stately = "1.1.7"
     val serialization = "1.2.1"
     val kotlinxDateTime = "0.2.1"
-    val turbine = "0.5.2"
+    val turbine = "0.6.0"
 
     object AndroidX {
         val core = "1.6.0"

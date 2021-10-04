@@ -96,9 +96,9 @@ struct CountView: View {
     
     var body: some View {
         List {
-            HStack {
-                Text(String(count.value))
-                Text(String(count.lastUpdateTimestamp))
+            VStack {
+                Text("There are \(count.value) todos")
+                Text("Last update \(count.lastUpdateTimestamp)")
             }
         }.onAppear(perform: {
             getTodoCount.invoke().subscribe { count in

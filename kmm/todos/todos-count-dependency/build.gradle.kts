@@ -42,6 +42,10 @@ kotlin {
     }
 
     sourceSets["commonTest"].dependencies {
+        implementation(project(":kmm:core:core-test"))
+        implementation(Deps.KotlinTest.common)
+        implementation(Deps.KotlinTest.annotations)
+        implementation(Deps.turbine)
     }
 
     sourceSets["androidMain"].dependencies {
@@ -49,6 +53,8 @@ kotlin {
     }
 
     sourceSets["androidTest"].dependencies {
+        implementation(Deps.KotlinTest.jvm)
+        implementation(Deps.KotlinTest.junit)
     }
 
     sourceSets["iosMain"].dependencies {

@@ -123,7 +123,7 @@ kotlin {
 
     cocoapods {
         summary = "The umbrella framework for the KMM codebase"
-        homepage = "https://github.com/touchlab/KaMPKit"
+        homepage = "https://github.com/AKJAW/KMM-Modularization"
     }
 
     // Configure the framework which is generated internally by cocoapods plugin
