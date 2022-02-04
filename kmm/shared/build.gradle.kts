@@ -1,3 +1,4 @@
+import de.fayard.refreshVersions.core.versionFor
 import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
@@ -86,7 +87,7 @@ kotlin {
         }
 
     sourceSets["androidMain"].dependencies {
-        implementation(kotlin("stdlib", Versions.kotlin))
+        implementation(kotlin("stdlib", "_"))
         implementation(Deps.SqlDelight.driverAndroid)
         implementation(Deps.Coroutines.android)
         implementation(Deps.Ktor.androidCore)
@@ -110,7 +111,7 @@ kotlin {
 
         implementation(Deps.Coroutines.common) {
             version {
-                strictly(Versions.coroutines)
+                strictly(versionFor(KotlinX.Coroutines.core))
             }
         }
     }

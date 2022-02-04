@@ -1,3 +1,5 @@
+import de.fayard.refreshVersions.core.versionFor
+
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
@@ -48,7 +50,7 @@ kotlin {
         implementation(Deps.koinCore)
         implementation(Deps.Coroutines.common) {
             version {
-                strictly(Versions.coroutines)
+                strictly(versionFor(KotlinX.Coroutines.core))
             }
         }
     }
