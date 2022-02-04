@@ -3,11 +3,11 @@ object Versions {
     val target_sdk = 30
     val compile_sdk = 31
 
-    val kotlin = "1.5.21"
+    val kotlin = "1.6.10"
     val android_gradle_plugin = "7.0.0"
 
     val buildToolsVersion = "30.0.3"
-    val coroutines = "1.5.0-native-mt"
+    val coroutines = "1.6.0-native-mt"
     val kermit = "0.1.9"
     val koin = "3.1.2"
     val ktlint_gradle_plugin = "10.0.0"
@@ -18,7 +18,7 @@ object Versions {
     val multiplatformSettings = "0.7.7"
     val robolectric = "4.5.1"
     val sqlDelight = "1.5.0"
-    val stately = "1.1.7"
+    val stately = "1.2.1"
     val serialization = "1.2.1"
     val kotlinxDateTime = "0.2.1"
     val turbine = "0.6.0"
@@ -31,7 +31,7 @@ object Versions {
     }
 
     object Compose {
-        const val compose = "1.0.1"
+        const val compose = "1.1.0-rc03"
         const val activity = "1.3.0"
         const val accompanist = "0.13.0"
     }
