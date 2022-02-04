@@ -1,3 +1,5 @@
+import de.fayard.refreshVersions.core.versionFor
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -44,7 +46,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.Compose.compose
+        kotlinCompilerExtensionVersion = versionFor(AndroidX.Compose.ui)
     }
 }
 

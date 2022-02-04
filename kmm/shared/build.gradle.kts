@@ -1,5 +1,4 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import de.fayard.refreshVersions.core.versionFor
 
 plugins {
     kotlin("multiplatform")
@@ -38,13 +37,7 @@ android {
 
 kotlin {
     android()
-    // Revert to just ios() when gradle plugin can properly resolve it
-    val onPhone = System.getenv("SDK_NAME")?.startsWith("iphoneos") ?: false
-    if (onPhone) {
-        iosArm64("ios")
-    } else {
-        iosX64("ios")
-    }
+    ios()
 
     version = "1.1"
 
@@ -92,7 +85,7 @@ kotlin {
         }
 
     sourceSets["androidMain"].dependencies {
-        implementation(kotlin("stdlib", Versions.kotlin))
+        implementation(kotlin("stdlib", "_"))
         implementation(Deps.SqlDelight.driverAndroid)
         implementation(Deps.Coroutines.android)
         implementation(Deps.Ktor.androidCore)
@@ -116,7 +109,7 @@ kotlin {
 
         implementation(Deps.Coroutines.common) {
             version {
-                strictly(Versions.coroutines)
+                strictly(versionFor(KotlinX.Coroutines.core))
             }
         }
     }
@@ -124,17 +117,14 @@ kotlin {
     cocoapods {
         summary = "The umbrella framework for the KMM codebase"
         homepage = "https://github.com/AKJAW/KMM-Modularization"
-    }
-
-    // Configure the framework which is generated internally by cocoapods plugin
-    targets.withType<KotlinNativeTarget> {
-        binaries.withType<Framework> {
-            isStatic = false // SwiftUI preview requires dynamic framework
+        framework {
+            isStatic = false
             export(project(":kmm:core:core-common"))
             export(project(":kmm:core:core-ios"))
             export(project(":kmm:todos:todos-list-api"))
             export(project(":kmm:todos:todos-count-api"))
-            transitiveExport = true
+            export(Deps.Coroutines.common)
+            export(Deps.koinCore)
         }
     }
 }

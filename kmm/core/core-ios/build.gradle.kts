@@ -5,13 +5,7 @@ plugins {
 version = "1.0"
 
 kotlin {
-    // Revert to just ios() when gradle plugin can properly resolve it
-    val onPhone = System.getenv("SDK_NAME")?.startsWith("iphoneos") ?: false
-    if (onPhone) {
-        iosArm64("ios")
-    } else {
-        iosX64("ios")
-    }
+    ios()
 
     version = "1.1"
 

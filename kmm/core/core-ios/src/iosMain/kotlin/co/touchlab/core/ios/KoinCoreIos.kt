@@ -1,7 +1,6 @@
 package co.touchlab.core.ios
 
-import co.touchlab.kermit.Kermit
-import co.touchlab.kermit.NSLogLogger
+import co.touchlab.kermit.Logger
 import kotlinx.cinterop.ObjCClass
 import kotlinx.cinterop.ObjCProtocol
 import kotlinx.cinterop.getOriginalKotlinClass
@@ -34,7 +33,7 @@ fun Koin.get(objCClass: ObjCClass, qualifier: Qualifier?): Any {
     return getOrThrow { get(kClazz, qualifier, null) }
 }
 
-private val kermit = Kermit(NSLogLogger()).withTag("Koin")
+private val kermit = Logger.withTag("Koin")
 
 private fun getOrThrow(get: () -> Any): Any {
     try {
