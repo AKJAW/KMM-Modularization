@@ -1,6 +1,4 @@
 import de.fayard.refreshVersions.core.versionFor
-import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
@@ -119,17 +117,14 @@ kotlin {
     cocoapods {
         summary = "The umbrella framework for the KMM codebase"
         homepage = "https://github.com/AKJAW/KMM-Modularization"
-    }
-
-    // Configure the framework which is generated internally by cocoapods plugin
-    targets.withType<KotlinNativeTarget> {
-        binaries.withType<Framework> {
-            isStatic = false // SwiftUI preview requires dynamic framework
+        framework {
+            isStatic = false
             export(project(":kmm:core:core-common"))
             export(project(":kmm:core:core-ios"))
             export(project(":kmm:todos:todos-list-api"))
             export(project(":kmm:todos:todos-count-api"))
-            transitiveExport = true
+            export(Deps.Coroutines.common)
+            export(Deps.koinCore)
         }
     }
 }
