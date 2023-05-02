@@ -8,16 +8,15 @@ plugins {
 android {
     compileSdk = Versions.compile_sdk
     buildToolsVersion = Versions.buildToolsVersion
+    namespace = "co.touchlab.kampkit"
     defaultConfig {
+        namespace = "co.touchlab.kampkit"
         applicationId = "co.touchlab.kampkit"
         minSdk = Versions.min_sdk
         targetSdk = Versions.target_sdk
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-    packagingOptions {
-        resources.excludes.add("META-INF/*.kotlin_module")
     }
     buildTypes {
         getByName("release") {
@@ -32,8 +31,8 @@ android {
     }
 
     lint {
-        isWarningsAsErrors = true
-        isAbortOnError = true
+        warningsAsErrors = true
+        abortOnError = true
     }
 
     buildFeatures {
