@@ -10,7 +10,6 @@ kotlin {
     version = "1.1"
 
     sourceSets["commonMain"].dependencies {
-        implementation(Deps.stately)
         implementation(Deps.Coroutines.common)
         implementation(Deps.koinCore)
         implementation(Deps.kermit)

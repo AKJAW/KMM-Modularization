@@ -62,7 +62,6 @@ kotlin {
         implementation(Deps.Ktor.commonJson)
         implementation(Deps.Ktor.commonLogging)
         implementation(Deps.Coroutines.common)
-        implementation(Deps.stately)
         implementation(Deps.multiplatformSettings)
         implementation(Deps.koinCore)
         implementation(Deps.Ktor.commonSerialization)
