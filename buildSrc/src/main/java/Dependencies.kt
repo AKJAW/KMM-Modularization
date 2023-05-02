@@ -1,8 +1,7 @@
 object Versions {
     val min_sdk = 21
-    val target_sdk = 30
-    val compile_sdk = 31
-    val ktlint_gradle_plugin = "10.0.0"
+    val target_sdk = 33
+    val compile_sdk = 33
     val buildToolsVersion = "30.0.3"
 }
 

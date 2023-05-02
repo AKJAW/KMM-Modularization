@@ -16,35 +16,12 @@ buildscript {
     }
 }
 
-plugins {
-    id("org.jlleitschuh.gradle.ktlint") version Versions.ktlint_gradle_plugin
-}
-
 allprojects {
     repositories {
         google()
         mavenCentral()
         maven(url = "https://oss.sonatype.org/content/repositories/snapshots/")
     }
-}
-
-subprojects {
-    apply(plugin = "org.jlleitschuh.gradle.ktlint")
-
-    ktlint {
-        version.set("0.37.2")
-        enableExperimentalRules.set(true)
-        verbose.set(true)
-        filter {
-            exclude { it.file.path.contains("build/") }
-        }
-    }
-
-    // afterEvaluate {
-    //     tasks.named("check").configure {
-    //         dependsOn(tasks.getByName("ktlintCheck"))
-    //     }
-    // }
 }
 
 tasks.register<Delete>("clean") {
