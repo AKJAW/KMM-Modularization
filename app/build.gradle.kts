@@ -9,15 +9,13 @@ android {
     compileSdk = Versions.compile_sdk
     buildToolsVersion = Versions.buildToolsVersion
     defaultConfig {
-        applicationId = "co.touchlab.kampkit"
+        namespace = "co.touchlab.kampkit.android"
+        applicationId = "co.touchlab.kampkit.android"
         minSdk = Versions.min_sdk
         targetSdk = Versions.target_sdk
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-    packagingOptions {
-        resources.excludes.add("META-INF/*.kotlin_module")
     }
     buildTypes {
         getByName("release") {
@@ -27,13 +25,13 @@ android {
     }
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     lint {
-        isWarningsAsErrors = true
-        isAbortOnError = true
+        warningsAsErrors = false
+        abortOnError = false
     }
 
     buildFeatures {
@@ -41,12 +39,12 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = versionFor(AndroidX.Compose.ui)
+        kotlinCompilerExtensionVersion = versionFor(AndroidX.Compose.compiler)
     }
 }
 

@@ -2,6 +2,7 @@ package co.touchlab.kampkit.android
 
 import android.app.Application
 import co.touchlab.kampkit.AppInfo
+import co.touchlab.kampkit.android.BuildConfig
 import co.touchlab.kampkit.initKoin
 import org.koin.dsl.module
 

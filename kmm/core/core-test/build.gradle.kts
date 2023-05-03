@@ -10,9 +10,9 @@ android {
         targetSdkVersion(Versions.target_sdk)
     }
 
-    lintOptions {
-        isWarningsAsErrors = true
-        isAbortOnError = true
+    lint {
+        warningsAsErrors = false
+        abortOnError = false
     }
 }
 

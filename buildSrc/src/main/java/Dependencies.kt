@@ -1,8 +1,7 @@
 object Versions {
     val min_sdk = 21
-    val target_sdk = 30
-    val compile_sdk = 31
-    val ktlint_gradle_plugin = "10.0.0"
+    val target_sdk = 33
+    val compile_sdk = 33
     val buildToolsVersion = "30.0.3"
 }
 
@@ -12,10 +11,10 @@ object Deps {
     val material = "com.google.android.material:material:_"
     val desugarJdkLibs = "com.android.tools:desugar_jdk_libs:_"
     val kermit = "co.touchlab:kermit:_"
-    val koinAndroid = "io.insert-koin:koin-android:_"
-    val koinCore = "io.insert-koin:koin-core:_"
-    val koinCompose = "io.insert-koin:koin-androidx-compose:_"
-    val koinTest = "io.insert-koin:koin-test:_"
+    val koinAndroid = Koin.android.withVersion("3.3.1")
+    val koinCore = Koin.core
+    val koinCompose = Koin.compose.withVersion("3.4.1")
+    val koinTest = Koin.test
     val multiplatformSettings =
         "com.russhwolf:multiplatform-settings:_"
     val multiplatformSettingsTest =

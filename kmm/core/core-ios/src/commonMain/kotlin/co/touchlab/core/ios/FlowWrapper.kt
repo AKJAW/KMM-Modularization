@@ -1,6 +1,5 @@
 package co.touchlab.core.ios
 
-import co.touchlab.stately.freeze
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.*
@@ -9,9 +8,6 @@ class FlowWrapper<T>(
     private val scope: CoroutineScope,
     private val flow: Flow<T>,
 ) {
-    init {
-        freeze()
-    }
 
     fun subscribe(
         onEach: (item: T) -> Unit,
@@ -23,9 +19,8 @@ class FlowWrapper<T>(
         onThrow: (error: Throwable) -> Unit,
         onComplete: () -> Unit,
     ): Job = flow
-        .onEach { onEach(it.freeze()) }
-        .catch { onThrow(it.freeze()) }
+        .onEach { onEach(it) }
+        .catch { onThrow(it) }
         .onCompletion { onComplete() }
         .launchIn(scope)
-        .freeze()
 }

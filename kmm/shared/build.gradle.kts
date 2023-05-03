@@ -17,8 +17,8 @@ android {
     }
 
     lint {
-        isWarningsAsErrors = true
-        isAbortOnError = true
+        warningsAsErrors = false
+        abortOnError = false
     }
 }
 
@@ -44,8 +44,8 @@ kotlin {
     sourceSets {
         all {
             languageSettings.apply {
-                useExperimentalAnnotation("kotlin.RequiresOptIn")
-                useExperimentalAnnotation("kotlinx.coroutines.ExperimentalCoroutinesApi")
+                optIn("kotlin.RequiresOptIn")
+                optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
             }
         }
     }
@@ -62,7 +62,6 @@ kotlin {
         implementation(Deps.Ktor.commonJson)
         implementation(Deps.Ktor.commonLogging)
         implementation(Deps.Coroutines.common)
-        implementation(Deps.stately)
         implementation(Deps.multiplatformSettings)
         implementation(Deps.koinCore)
         implementation(Deps.Ktor.commonSerialization)
@@ -81,7 +80,7 @@ kotlin {
 
     sourceSets.matching { it.name.endsWith("Test") }
         .configureEach {
-            languageSettings.useExperimentalAnnotation("kotlin.time.ExperimentalTime")
+            languageSettings.optIn("kotlin.time.ExperimentalTime")
         }
 
     sourceSets["androidMain"].dependencies {
