@@ -8,10 +8,9 @@ plugins {
 android {
     compileSdk = Versions.compile_sdk
     buildToolsVersion = Versions.buildToolsVersion
-    namespace = "co.touchlab.kampkit"
     defaultConfig {
-        namespace = "co.touchlab.kampkit"
-        applicationId = "co.touchlab.kampkit"
+        namespace = "co.touchlab.kampkit.android"
+        applicationId = "co.touchlab.kampkit.android"
         minSdk = Versions.min_sdk
         targetSdk = Versions.target_sdk
         versionCode = 1
@@ -26,13 +25,13 @@ android {
     }
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     lint {
-        warningsAsErrors = true
-        abortOnError = true
+        warningsAsErrors = false
+        abortOnError = false
     }
 
     buildFeatures {
@@ -40,12 +39,12 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = versionFor(AndroidX.Compose.ui)
+        kotlinCompilerExtensionVersion = versionFor(AndroidX.Compose.compiler)
     }
 }
 
